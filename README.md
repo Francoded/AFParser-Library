@@ -38,7 +38,7 @@ The following is an example C++ program that uses [Project Name] to implement a
 parser that accepts the language of all binary numbers.
 
 binary.cpp:
-```
+```C++
 #include <iostream>
 
 #include "parser.h" // defines Parser
@@ -162,6 +162,6 @@ The PrettyParser class can visualize:
 
 This is discussed further in the Visualization wiki page.
 
-## License
+### Examples
 
-// TODO
+There are numerous examples to reference and are provided in the examples folder of the repository. The examples are discussed further in the Examples wiki section.
