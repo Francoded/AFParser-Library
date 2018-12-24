@@ -1,16 +1,10 @@
-# [Project Title]
+# The Attribute-Flow Parser (AFP) Library
 
-[Project Title] is a collection of C++11 header files that provides users with a
-flexible rapid prototyping tool to create general-purpose LL(k) parsers in C++. 
-Attribute-Flow Grammars (AFG) are used to specify the LL(k) language the created
-parser will accept. Unlike parser generators like Bison and YACC, [Project
-Title] does not require installation or code generation.
+The AFP Library is a collection of C++11 header files that provides users with a flexible rapid prototyping tool to create general-purpose LL(k) Attribute-Flow Parsers, or AFParsers, in C++. Attribute-Flow Grammars (AFG) are used to specify the LL(k) language user-created AFParsers will accept. Unlike parser generators like Bison and YACC, the AFP Libary does not require installation or code generation.
 
 ## Getting Started
 
-To illustrate how to use [Project Name] to create a parser in C++11, we will be
-using a simplified version of the binary number parser program as our running 
-example. The full program can be found in the Examples wiki page.
+To illustrate how to use the AFP Library to create a AFParser in C++11, we will be using a simplified version of the binary number parser program as our running example. The full binary number AFParser can be found in the Examples wiki page.
 
 ### Prerequisites
 
@@ -34,8 +28,7 @@ Compilers:
 
 4) Invoke parse() on starting nonterminal
 
-The following is an example C++ program that uses [Project Name] to implement a 
-parser that accepts the language of all binary numbers.
+The following is an example C++ program that uses the AFP Libary to implement an AFParser that accepts the language of all binary numbers.
 
 binary.cpp:
 ```C++
@@ -71,8 +64,7 @@ int main()
 
 ### Attribute-Flow Grammars (AFG)
 
-The syntax of an Attribute-Flow Grammar is similar to that of grammars written
-in Extended-Backus Naur Form (EBNF).
+The syntax of an Attribute-Flow Grammar is similar to that of grammars written in Extended-Backus Naur Form (EBNF).
 
 Key Differences:
 1) Grammar productions are specfied with an equal sign (=) instead of an arrow
@@ -105,12 +97,9 @@ Token(65)            a token with code 65
 
 ### Preparing Input
 
-The created LL(k) parser expects token-based input stored in a Tokenizer-derived
-object. FlexTokenizer is a derived Tokenizer class that uses Flex generated scanner
-to tokenize input.
+The created LL(k) AFParser expects token-based input stored in a Tokenizer-derived object. FlexTokenizer is a derived Tokenizer class that uses Flex generated scanner to tokenize input.
 
-The following is the Flex specification used to generate the Flex lexer for the
-binary number parser example given earlier.
+The following is the Flex specification used to generate the Flex lexer for the binary number AFParser example given earlier.
 
 lexer.l:
 ```
@@ -138,23 +127,17 @@ g++ -c lex.yy.c
 g++ binary.cpp lex.yy.o
 ```
 
-Flex documentation can be found at http://westes.github.io/flex/manual/. 
-Implementing Tokenizer derived classes are discussed more in the Scanning wiki page.
+Flex documentation can be found at http://westes.github.io/flex/manual/. Implementing Tokenizer-derived classes are discussed more in the Scanning wiki page.
 
 ### Semantics
 
-In AFGs, flow variables give grammar symbols a semantic meaning. Each grammar 
-symbol may have an in- and out-flow variable which replace inherited and
-synthesize attributes, used in conventional attribute grammars, respectively.
+In AFGs, flow variables give grammar symbols a semantic meaning. Each grammar symbol may have an in- and out-flow variable which replace inherited and synthesize attributes, used in conventional attribute grammars, respectively. Further, AFGs use C++ lambdas to implement semantic actions in grammar productions.
 
-AFGs use C++ lambdas to implement semantic actions in grammar productions.
-
-AFG semantics is discussed more in the Attribute Flow Grammars wiki page.
+AFG semantics is discussed more in the Attribute-Flow Grammars wiki page.
 
 ### Visualization
 
-One can visualize grammar productions or parse trees for some input using the
-ParseTree and PrettyParser classes.
+One can visualize grammar productions or parse trees for some input using the ParseTree and PrettyParser classes.
 
 The PrettyParser class can visualize:
 * Grammar productions to stdout
