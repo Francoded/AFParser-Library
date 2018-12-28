@@ -1,10 +1,10 @@
 # The Attribute-Flow Parser (AFP) Library
 
-The AFP Library is a collection of C++11 header files that provides users with a flexible rapid prototyping tool to create general-purpose LL(k) Attribute-Flow Parsers, or AFParsers, in C++. Attribute-Flow Grammars (AFG) are used to specify the LL(k) language user-created AFParsers will accept. Unlike parser generators like Bison and YACC, the AFP Libary does not require installation or code generation.
+The AFP Library is a collection of C++11 header files that provides users with a flexible rapid prototyping tool to create general-purpose LL(_k_) Attribute-Flow Parsers in C++. Attribute-Flow Grammars (AFG) are used to specify the LL(_k_) language user-created _AFParser_ objects will accept. Unlike parser generators like Bison and YACC, the AFP Libary does not require installation or code generation.
 
 ## Getting Started
 
-To illustrate how to use the AFP Library to create a AFParser in C++11, we will be using a simplified version of the binary number parser program as our running example. The full binary number AFParser can be found in the Examples wiki page.
+To illustrate how to use the AFP Library to create a _AFParser_ object in C++11, we will be using a simplified version of the binary number parser program as our running example. The full binary number example can be found in the Examples wiki page.
 
 ### Prerequisites
 
@@ -15,20 +15,19 @@ Compilers:
 ### General Usage
 
 1) Declare (non)terminals
-   * Nonterminal Syntax: Parser<InType, OutType> NAME;
-   * Terminal Syntax: Parser<InType, OutType> term(token_code);
-   * InType and OutType specify the types of the in- and out-flow variable for
-  the (non)terminal
-   * token_code is an integer
+   * Nonterminal Syntax: `Parser<InType, OutType> NAME;`
+   * Terminal Syntax: `Parser<InType, OutType> term(token_code);`
+   * `InType` and `OutType` specify the types of the in- and out-flow variable for the (non)terminal
+   * `token_code` is an integer
 
 2) Specify language to accept with an AFG
 
-3) Prepare input in a Tokenizer derived object
-   * FlexTokenizer is derived from Tokenizer and uses Flex to tokenize input
+3) Prepare input in a _Tokenizer_ derived object
+   * _FlexTokenizer_ is derived from _Tokenizer_ and uses Flex to tokenize input
 
-4) Invoke parse() on starting nonterminal
+4) Invoke `parse()` on starting nonterminal
 
-The following is an example C++ program that uses the AFP Libary to implement an AFParser that accepts the language of all binary numbers.
+The following is an example C++ program that uses the AFP Libary to implement an _AFParser_ object that accepts the language of all binary numbers.
 
 binary.cpp:
 ```C++
@@ -64,22 +63,20 @@ int main()
 
 ### Attribute-Flow Grammars (AFG)
 
-The syntax of an Attribute-Flow Grammar is similar to that of grammars written in Extended-Backus Naur Form (EBNF).
+The syntax of an Attribute-Flow Grammar is similar to that of grammars written in Extended Backus-Naur Form (EBNF).
 
 Key Differences:
-1) Grammar productions are specfied with an equal sign (=) instead of an arrow
-(->) and end with a semicolon (;).
-   * EBNF: S -> A
-   * AFG: S = A;
+1) Grammar productions are specfied with an equal sign (=) instead of an arrow (->) and end with a semicolon (;).
+   * EBNF: `S -> A`
+   * AFG: `S = A;`
 2) Sequential grammar symbols are separated by the binary AND operator (&)
-   * EBNF: S -> A B
-   * AFG: S = A & B;
+   * EBNF: `S -> A B`
+   * AFG: `S = A & B;`
 3) Grammar symbol operators appear on the left of the grammar symbol operand as opposed to EBNF notation where the operator appears to the right of the grammar symbol operand
-   * EBNF: S -> A\*;
-   * AFG: S = \*A;
+   * EBNF: `S -> A\*;`
+   * AFG: `S = \*A;`
 
-The following table illustrates all the operations available to be performed on
-grammar symbols in an AFG.
+The following table illustrates all the operations available to be performed on grammar symbols in an AFG.
 ```
 X & Y                concatenation
 X | Y                alternation
@@ -97,9 +94,9 @@ Token(65)            a token with code 65
 
 ### Preparing Input
 
-The created LL(k) AFParser expects token-based input stored in a Tokenizer-derived object. FlexTokenizer is a derived Tokenizer class that uses Flex generated scanner to tokenize input.
+Created _AFParser_ objects expect token-based input stored in a _Tokenizer_-derived object. _FlexTokenizer_ is a derived _Tokenizer_ class that uses Flex generated scanner to tokenize input.
 
-The following is the Flex specification used to generate the Flex lexer for the binary number AFParser example given earlier.
+The following is the Flex specification used to generate the Flex lexer for the running binary number example.
 
 lexer.l:
 ```
@@ -127,7 +124,7 @@ g++ -c lex.yy.c
 g++ binary.cpp lex.yy.o
 ```
 
-Flex documentation can be found at http://westes.github.io/flex/manual/. Implementing Tokenizer-derived classes are discussed more in the Scanning wiki page.
+Flex documentation can be found at http://westes.github.io/flex/manual/. Implementing _Tokenizer_-derived classes are discussed more in the Scanning wiki page.
 
 ### Semantics
 
@@ -137,9 +134,9 @@ AFG semantics is discussed more in the Attribute-Flow Grammars wiki page.
 
 ### Visualization
 
-One can visualize grammar productions or parse trees for some input using the ParseTree and PrettyParser classes.
+One can visualize grammar productions or parse trees for some input using the _ParseTree_ and _PrettyParser_ classes.
 
-The PrettyParser class can visualize:
+The _PrettyParser_ class can visualize:
 * Grammar productions to stdout
 * Parse trees, for some input, to stdout and Graphviz Dot notation
 
