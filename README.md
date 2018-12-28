@@ -22,7 +22,7 @@ Compilers:
 
 2) Specify language to accept with an AFG
 
-3) Prepare input in a _Tokenizer_ derived object
+3) Prepare input in a _Tokenizer_-derived object
    * _FlexTokenizer_ is derived from _Tokenizer_ and uses Flex to tokenize input
 
 4) Invoke `parse()` on starting nonterminal
