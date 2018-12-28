@@ -73,8 +73,8 @@ Key Differences:
    * EBNF: `S -> A B`
    * AFG: `S = A & B;`
 3) Grammar symbol operators appear on the left of the grammar symbol operand as opposed to EBNF notation where the operator appears to the right of the grammar symbol operand
-   * EBNF: `S -> A\*;`
-   * AFG: `S = \*A;`
+   * EBNF: `S -> A*;`
+   * AFG: `S = *A;`
 
 The following table illustrates all the operations available to be performed on grammar symbols in an AFG.
 ```
