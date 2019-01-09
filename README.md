@@ -1,4 +1,4 @@
-# The Attribute-Flow Parser (AFP) Library
+# The Attribute-Flow Parser (AFParser) Library
 
 The AFP Library is a collection of C++11 header files that provides users with a flexible rapid prototyping tool to create general-purpose LL(_k_) Attribute-Flow Parsers in C++. Attribute-Flow Grammars (AFG) are used to specify the LL(_k_) language user-created _AFParser_ objects will accept. Unlike parser generators like Bison and YACC, the AFP Libary does not require installation or code generation.
 
@@ -144,4 +144,4 @@ This is discussed further in the Visualization wiki page.
 
 ### Examples
 
-There are numerous examples to reference and are provided in the examples folder of the repository. The examples are discussed further in the Examples wiki section.
+There are numerous examples discussed briefly in the Wiki section and are provided in the examples folder of the repository.
